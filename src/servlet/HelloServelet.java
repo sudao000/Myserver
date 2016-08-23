@@ -1,4 +1,4 @@
-package Test;
+package servlet;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
@@ -10,12 +10,12 @@ import java.net.URLEncoder;
 
 public class HelloServelet extends javax.servlet.http.HttpServlet {
 
-    protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse
+    protected void doPost(javax.servlet.http.HttpServletRequest request, HttpServletResponse
             response) throws javax.servlet.ServletException, IOException {
         doGet(request, response);
 
     }
-    protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse
+    protected void doGet(javax.servlet.http.HttpServletRequest request, HttpServletResponse
             response) throws javax.servlet.ServletException, IOException {
 
       download(response);
@@ -43,4 +43,7 @@ public class HelloServelet extends javax.servlet.http.HttpServlet {
         }
         in.close();
     }
+
+
+
 }
