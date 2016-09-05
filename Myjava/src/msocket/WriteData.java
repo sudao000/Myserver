@@ -2,6 +2,7 @@ package msocket;
 
 import mysql.Comysql;
 import mysql.dao.StateDao;
+import mysql.dao.TnowDao;
 import mysql.tab.State;
 
 import java.sql.Connection;
@@ -15,40 +16,54 @@ import java.util.Date;
  */
 public class WriteData implements Runnable {
     Connection conn;
-    String name,state;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    String name;
 
 
-    public WriteData(Connection conn, String name,String state) {
+    public WriteData(Connection conn) {
         this.conn = conn;
-        this.name= name;
-        this.state=state;
     }
 
     @Override
     public void run() {
-        try {
-            Thread.sleep(10*1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        String []s=getTime();
-        StateDao stateDao=new StateDao(conn,name);
-        try {
-            State st=new State(Comysql.getCount(name),state,s[1],s[0]);
-            stateDao.add(st);
-        } catch (SQLException e) {
-            e.printStackTrace();
+        while (true) {
+            setName(ReciveRunable.fname);
+            try {
+                Thread.sleep(10 * 1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            if (name!=null) {
+                String[] s = getTime();
+                StateDao stateDao = new StateDao(conn, name);
+                TnowDao tnowDao = new TnowDao(conn, name);
+
+                try {
+                    String[] state = tnowDao.getTnow();
+                    State st = new State(Comysql.getCount(name+"_s"), state[1], s[1], s[0]);
+                    System.out.println("write:" + state[1]+"  "+s[1]);
+                    stateDao.add(st);
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
 
     }
-    public String[] getTime(){
-        Date date=new Date();
-        DateFormat f1=new SimpleDateFormat("yyy-MM-dd");
-        DateFormat f2=new SimpleDateFormat("HH:mm:ss");
-        String s[]=new String[2];
-        s[0]=f1.format(date);
-        s[1]=f2.format(date);
-        return  s;
+
+    public String[] getTime() {
+        Date date = new Date();
+        DateFormat f1 = new SimpleDateFormat("yyy-MM-dd");
+        DateFormat f2 = new SimpleDateFormat("HH:mm:ss");
+        String s[] = new String[2];
+        s[0] = f1.format(date);
+        s[1] = f2.format(date);
+        return s;
     }
 }

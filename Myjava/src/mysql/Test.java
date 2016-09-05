@@ -1,33 +1,26 @@
 package mysql;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import msocket.ReciveRunable;
+import msocket.WriteData;
+
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.sql.Connection;
 
 /**
  * Created by ASD on 2016/9/1.
  */
 public class Test {
-    public static void main(String args[]) {
-        /*try {
-            s = td.getTnow();
-            System.out.println(s[0] + "\n" + s[1] + ";");
-            td.update(tnow);
-            s = td.getTnow();
-            System.out.println(s[0] + "\n" + s[1] + ";");
-
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }*/
-        Date date=new Date();
-        DateFormat f1=new SimpleDateFormat("yyy-MM-dd");
-        DateFormat f2=new SimpleDateFormat("HH:mm:ss");
-        String s[]=new String[2];
-        s[0]=f1.format(date);
-        s[1]=f2.format(date);
-        System.out.println(s[0]+" "+s[1]);
-
+    public static void main(String args[]) throws IOException {
+        ServerSocket serivce = new ServerSocket(6000);
+        Connection con=Comysql.getConnection();
+        while (true) {
+            //等待客户端连接
+            Socket socket = serivce.accept();
+            new Thread(new ReciveRunable(socket,con)).start();
+            new Thread(new WriteData(con)).start();
+        }
 
     }
 }

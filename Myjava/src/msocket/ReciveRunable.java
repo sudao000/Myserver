@@ -15,30 +15,37 @@ import java.sql.SQLException;
  * Created by ASD on 2016/9/5.
  */
 public class ReciveRunable implements Runnable {
+    public static String fname;
 
     Socket socket = null;
     Connection conn;
-    public ReciveRunable(Socket socket,Connection con) {
+
+    public ReciveRunable(Socket socket, Connection con) {
         this.socket = socket;
-        this.conn=con;
+        this.conn = con;
     }
 
     @Override
     public void run() {
-
+        boolean f = true;
         InputStream input;
+        String line = null;
         try {
 
             input = socket.getInputStream();
             BufferedReader bff = new BufferedReader(
-                    new InputStreamReader(input,"gbk"));
+                    new InputStreamReader(input, "gbk"));
 
-            while (bff.readLine() != null) {
-                String s[]=new String[3];
-                String line=bff.readLine();
-                s=line.split(";");
-                TnowDao tnowDao=new TnowDao(conn,s[0]);
-                Tnow tnow=new Tnow(1,s[1],s[2]);
+            while ((line = bff.readLine()) != null) {
+                String s[] = new String[3];
+                System.out.println("receive:"+line);
+                s = line.split(";");
+                if (f) {
+                    fname = s[0];
+                    f = false;
+                }
+                TnowDao tnowDao = new TnowDao(conn, s[0]);
+                Tnow tnow = new Tnow(1, s[1], s[2]);
                 try {
                     tnowDao.update(tnow);
                 } catch (SQLException e) {
