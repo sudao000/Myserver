@@ -21,5 +21,21 @@
     <file url="file://$PROJECT_DIR$/Myjava/src/mysql/tab/Warnp.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Myjava/src/test/AndroidRunable.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/Myjava/src/test/Ts.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/mysql/Comysql.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/mysql/dao/MachineDao.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/mysql/dao/MtainDao.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/mysql/dao/StateDao.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/mysql/dao/TnowDao.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/mysql/dao/UserDao.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/mysql/dao/WarnDao.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/mysql/dao/WarnPDao.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/mysql/tab/Machine.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/mysql/tab/Mtain.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/mysql/tab/State.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/mysql/tab/Tnow.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/mysql/tab/User.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/mysql/tab/Warn.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/mysql/tab/Warnp.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/servlet/ServletContextDemo1.java" charset="GBK" />
   </component>
 </project>

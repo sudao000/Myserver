@@ -53,6 +53,27 @@ public class UserDao {
         return user;
 
     }
+    public boolean check(String name) throws SQLException {
+        String sql = "select * from userinfo where name=?";
+        PreparedStatement pres = conn.prepareStatement(sql);
+        pres.setString(1, name);
+        ResultSet rs = pres.executeQuery();
+        if (rs.next()) {
+            return true;
+        } else return false;
+
+
+    }
+    public boolean proving(String name,String psd)throws SQLException{
+        String sql = "select * from userinfo where name=? and psd=?";
+        PreparedStatement pres = conn.prepareStatement(sql);
+        pres.setString(1, name);
+        pres.setString(2,psd);
+        ResultSet rs = pres.executeQuery();
+        if (rs.next()) {
+            return true;
+        } else return false;
+    }
     public String[] getMachine(int id)throws SQLException{
         String sql="select num from machineinfo where usenum="+id;
         Statement st=conn.createStatement();
