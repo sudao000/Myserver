@@ -19,5 +19,6 @@ public class User {
         this.shen = shen;
         this.shi = shi;
         this.address = address;
+        System.out.println("´´½¨user");
     }
 }

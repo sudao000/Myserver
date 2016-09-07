@@ -38,5 +38,15 @@ public class Comysql {
         return n;
 
     }
+    public static int getMax(String form)throws  SQLException{
+        Connection conn=getConnection();
+        String sql="select MAX(id) from "+form;
+        Statement st=conn.createStatement();
+        ResultSet rs=st.executeQuery(sql);
+        if(rs.next())
+        {int n=rs.getInt("max(id)");
+        return n;}
+        else return -1;
+    }
 }
 

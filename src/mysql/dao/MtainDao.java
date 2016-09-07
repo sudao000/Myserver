@@ -39,7 +39,7 @@ public class MtainDao {
             int id=rs.getInt("id");
             String que=rs.getString("que");
             String way=rs.getString("way");
-            String person=rs.getString("person");
+            String person=rs.getString("Person");
             String time=rs.getString("time");
             String mdate=rs.getString("date");
             Mtain ma=new Mtain(id,que,way,person,time,mdate);

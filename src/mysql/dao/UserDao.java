@@ -12,6 +12,7 @@ public class UserDao {
 
     public UserDao(Connection conn) {
         this.conn = conn;
+        System.out.println("´´½¨userdao");
     }
 
     public int add(User user) throws SQLException {
@@ -28,6 +29,7 @@ public class UserDao {
         pres.setString(9, user.address);
         int n = pres.executeUpdate();
         pres.close();
+        System.out.println("Ìí¼Óuser");
         return n;
     }
 
