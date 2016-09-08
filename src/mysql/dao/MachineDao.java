@@ -1,6 +1,8 @@
 package mysql.dao;
 
+import mysql.Comysql;
 import mysql.tab.Machine;
+import org.json.JSONException;
 
 import java.sql.*;
 
@@ -54,6 +56,17 @@ public class MachineDao {
             Machine machine = new Machine(id, num, name, usenum, summary, aparm,dparm, date);
             return machine;
         } else return null;
+    }
+    public String getJsonMachine(String num)throws SQLException,JSONException{
+        String sql = "select * from machineinfo where num=" + "'" + num + "'";
+        Statement st = conn.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+        String result=Comysql.resultSetToJson(rs);
+        rs.close();
+        st.close();
+        return result;
+
+
     }
 
 

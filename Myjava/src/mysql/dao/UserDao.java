@@ -1,6 +1,8 @@
 package mysql.dao;
 
+import mysql.Comysql;
 import mysql.tab.User;
+import org.json.JSONException;
 
 import java.sql.*;
 
@@ -101,6 +103,15 @@ public class UserDao {
         String adress=set.getString("adress");
        User user=new User(id,name,psd,company,phonenum,email,shen,shi,adress);
         return user;}else return null;
+    }
+    public String getJSonUser(String name)throws SQLException,JSONException{
+        String sql="select * from userinfo where name="+"'"+name+"'";
+        Statement st=conn.createStatement();
+        ResultSet rs=st.executeQuery(sql);
+        String result= Comysql.resultSetToJson(rs);
+        rs.close();
+        st.close();
+        return result;
     }
 }
 

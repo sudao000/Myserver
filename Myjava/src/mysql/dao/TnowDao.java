@@ -1,6 +1,8 @@
 package mysql.dao;
 
+import mysql.Comysql;
 import mysql.tab.Tnow;
+import org.json.JSONException;
 
 import java.sql.*;
 
@@ -34,6 +36,15 @@ public class TnowDao {
         s[1]=rs.getString("astate");}
         return s;
 
+    }
+    public String getJSonTnow()throws  SQLException,JSONException {
+        String sql="SELECT * FROM "+fname;
+        Statement st=conn.createStatement();
+        ResultSet rs=st.executeQuery(sql);
+        String result= Comysql.resultSetToJson(rs);
+        rs.close();
+        st.close();
+        return  result;
     }
 
 

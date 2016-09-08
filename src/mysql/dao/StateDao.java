@@ -1,6 +1,8 @@
 package mysql.dao;
 
+import mysql.Comysql;
 import mysql.tab.State;
+import org.json.JSONException;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -46,6 +48,15 @@ public class StateDao {
         return list_state;
 
 
+    }
+    public String getJSonState(String date)throws  SQLException,JSONException {
+        String sql="select * from "+fname+" where date="+"'" + date + "'";
+        Statement st=conn.createStatement();
+        ResultSet rs=st.executeQuery(sql);
+        String result= Comysql.resultSetToJson(rs);
+        rs.close();
+        st.close();
+        return  result;
     }
 
 

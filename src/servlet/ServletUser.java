@@ -19,7 +19,7 @@ import java.util.Map;
 /**
  * Created by ASD on 2016/8/19.
  */
-public class ServletContextDemo1 extends HttpServlet {
+public class ServletUser extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 

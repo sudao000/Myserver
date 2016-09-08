@@ -1,9 +1,9 @@
 package mysql;
 
 
+import mysql.tab.Myjson;
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.IOException;
 import java.sql.*;
@@ -22,7 +22,7 @@ public class Test {
             new Thread(new WriteData(con)).start();
         }*/
         Connection conn = Comysql.getConnection();
-        String sql = "select * from sclyj01001_s where date='2016-09-05'";
+        String sql = "select * from sclyj01001_s where id=5";
         Statement st = conn.createStatement();
         ResultSet rs = st.executeQuery(sql);
         try {
@@ -41,11 +41,12 @@ public class Test {
         ResultSetMetaData metaData = rs.getMetaData();
         int columnCount = metaData.getColumnCount();
         while (rs.next()) {
-            JSONObject jsonobj = new JSONObject();
+            Myjson jsonobj=new Myjson();
             for(int i=1;i<=columnCount;i++){
                 String columnName=metaData.getColumnLabel(i);
                 String value=rs.getString(columnName);
                 jsonobj.put(columnName,value);
+
             }
             array.put(jsonobj);
         }

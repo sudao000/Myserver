@@ -1,5 +1,9 @@
 package mysql;
 
+import dao.Myjson;
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import java.sql.*;
 
 /**
@@ -47,6 +51,22 @@ public class Comysql {
         {int n=rs.getInt("max(id)");
             return n;}
         else return -1;
+    }
+    public  static String resultSetToJson(ResultSet rs) throws SQLException, JSONException {
+        JSONArray array = new JSONArray();
+        ResultSetMetaData metaData = rs.getMetaData();
+        int columnCount = metaData.getColumnCount();
+        while (rs.next()) {
+            Myjson jsonobj=new Myjson();
+            for(int i=1;i<=columnCount;i++){
+                String columnName=metaData.getColumnLabel(i);
+                String value=rs.getString(columnName);
+                jsonobj.put(columnName,value);
+
+            }
+            array.put(jsonobj);
+        }
+        return array.toString();
     }
 }
 

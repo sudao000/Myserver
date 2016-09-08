@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class TokenProccessor {
 
-    /*
+    /**
      *单例设计模式（保证类的对象在内存中只有一个）
      *1、把类的构造函数私有
      *2、自己创建一个类的对象

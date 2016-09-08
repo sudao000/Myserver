@@ -36,7 +36,8 @@
     <file url="file://$PROJECT_DIR$/src/mysql/tab/User.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/mysql/tab/Warn.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/mysql/tab/Warnp.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/servlet/ServletContextDemo1.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/servlet/ServletContextDemo2.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/servlet/DataServelet.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/servlet/ServletRegister.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/servlet/ServletUser.java" charset="GBK" />
   </component>
 </project>
