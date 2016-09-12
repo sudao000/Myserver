@@ -28,6 +28,8 @@
     <file url="file://$PROJECT_DIR$/src/mysql/dao/TnowDao.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/mysql/dao/UserDao.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/mysql/dao/WarnDao.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/mysql/dao/WarnDao.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/mysql/dao/WarnPDao.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/mysql/dao/WarnPDao.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/mysql/tab/Machine.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/mysql/tab/Mtain.java" charset="GBK" />

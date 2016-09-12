@@ -1,6 +1,8 @@
 package mysql.dao;
 
+import mysql.Comysql;
 import mysql.tab.Warnp;
+import org.json.JSONException;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -28,9 +30,20 @@ public class WarnPDao {
         while (rs.next()){
             int id=rs.getInt("id");
             String sumary=rs.getString("sumary");
-            Warnp warnp=new Warnp(id,sumary);
+            String term=rs.getString("term");
+            Warnp warnp=new Warnp(id,sumary,term);
             list.add(warnp);
         }
         return list;
     }
+    public String getJSonwp()throws  SQLException,JSONException{
+        String sql="select * from "+fname;
+        Statement st=conn.createStatement();
+        ResultSet rs=st.executeQuery(sql);
+        String result= Comysql.resultSetToJson(rs);
+        rs.close();
+        st.close();
+        return result;
+    }
+
 }

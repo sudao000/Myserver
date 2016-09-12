@@ -65,6 +65,16 @@ public class DataServelet extends javax.servlet.http.HttpServlet {
                         result=userDao.getJSonUser(para);
                         System.out.println("5:"+result);
                         break;
+                    case 6:
+                        WarnDao warnDao=new WarnDao(conn,num);
+                        result=warnDao.getJSonwarn(para);
+                        System.out.println("6:"+result);
+                        break;
+                    case 7:
+                        WarnPDao warnPDao=new WarnPDao(conn,num);
+                        result=warnPDao.getJSonwp();
+                        System.out.println("7:"+result);
+                        break;
                     default:
                         result="false";
 
@@ -82,11 +92,12 @@ public class DataServelet extends javax.servlet.http.HttpServlet {
         }
         try {
             JSONArray json=new JSONArray(result);
-            os.write(json.get(0).toString().getBytes());
-            os.write("\n".getBytes());
-            System.out.println(json.get(0));
-            os.write(json.get(1).toString().getBytes());
-            System.out.println(json.get(1));
+            int size=json.length();
+            for(int q=0;q<size;q++)
+            {
+                os.write(json.get(q).toString().getBytes());
+                os.write("<br></br>".getBytes());
+            }
             os.flush();
             os.close();
         } catch (JSONException e) {

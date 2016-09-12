@@ -23,25 +23,25 @@ public class Myjson extends JSONObject {
 
     @Override
     public JSONObject put(String name, boolean value) throws JSONException {
-        // TODO Auto-generated method stub
+
         return put(name, value);
     }
 
     @Override
     public JSONObject put(String name, double value) throws JSONException {
-        // TODO Auto-generated method stub
+
         return put(name, value);
     }
 
     @Override
     public JSONObject put(String name, int value) throws JSONException {
-        // TODO Auto-generated method stub
+
         return put(name, value);
     }
 
     @Override
     public JSONObject put(String name, long value) throws JSONException {
-        // TODO Auto-generated method stub
+
         return put(name, value);
     }
 

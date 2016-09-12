@@ -1,9 +1,14 @@
 package mysql.dao;
 
+import mysql.Comysql;
 import mysql.tab.Warn;
+import org.json.JSONException;
 
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -28,6 +33,18 @@ public class WarnDao {
         pres.close();
         return n;
     }
+    public int add(int i)throws SQLException{
+        String sql="insert into "+fname+" values(?,?,?,?)";
+        PreparedStatement pres = conn.prepareStatement(sql);
+        String[] time=getTime();
+        pres.setInt(1, Comysql.getCount(fname));
+        pres.setInt(2, i);
+        pres.setString(3, time[1]);
+        pres.setString(4, time[0]);
+        int n = pres.executeUpdate();
+        pres.close();
+        return n;
+    }
     public List<Warn> getState(String date)throws SQLException{
         String sql="select * from "+fname+" where date="+"'" + date + "'";
         Statement st=conn.createStatement();
@@ -45,6 +62,23 @@ public class WarnDao {
         st.close();
         return list_warn;
 
-
+    }
+    public String getJSonwarn(String date)throws  SQLException,JSONException {
+        String sql="select * from "+fname+" where date="+"'" + date + "'";
+        Statement st=conn.createStatement();
+        ResultSet rs=st.executeQuery(sql);
+        String result= Comysql.resultSetToJson(rs);
+        rs.close();
+        st.close();
+        return result;
+    }
+    public String[] getTime() {
+        Date date = new Date();
+        DateFormat f1 = new SimpleDateFormat("yyy-MM-dd");
+        DateFormat f2 = new SimpleDateFormat("HH:mm:ss");
+        String s[] = new String[2];
+        s[0] = f1.format(date);
+        s[1] = f2.format(date);
+        return s;
     }
 }
