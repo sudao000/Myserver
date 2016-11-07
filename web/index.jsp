@@ -13,16 +13,16 @@
 <fieldset style="width:500px;">
   <legend>Html的Form表单元素</legend>
   <!--form表单的action属性规定当提交表单时，向何处发送表单数据，method属性指明表单的提交方式，分为get和post，默认为get-->
-  <form action="${pageContext.request.contextPath}/demo1" method="post">
+  <form action="${pageContext.request.contextPath}/test" method="post">
     <!--输入文本框，SIZE表示显示长度，maxlength表示最多输入长度-->
     编&nbsp;&nbsp;号(文本框)：
     <input type="text" name="userid" value="NO." size="2" maxlength="2"><br>
     <!--输入文本框，通过value指定其显示的默认值-->
-    用户名(文本框)：<input type="text" name="username" value="请输入用户名"><br>
+    用户名(文本框)：<input type="text" name="user" value="请输入用户名"><br>
     <!--密码框，其中所有输入的内容都以密文的形式显示-->
     密&nbsp;&nbsp;码(密码框)：
     <!--&nbsp;表示的是一个空格-->
-    <input type="password" name="userpass" value="请输入密码"><br>
+    <input type="password" name="psd" value="请输入密码"><br>
     <!--单选按钮，通过checked指定默认选中，名称必须一样，其中value为真正需要的内容-->
     性&nbsp;&nbsp;别(单选框)：
     <input type="radio" name="sex" value="男" checked>男

@@ -1,9 +1,6 @@
 <component name="libraryTable">
   <library name="jsp-api">
     <CLASSES>
-      <root url="jar://C:/Program Files/apache-tomcat-8.0.36/lib/jsp-api.jar!/" />
-      <root url="jar://C:/Program Files/apache-tomcat-8.0.36/lib/servlet-api.jar!/" />
-      <root url="jar://F:/通用/mysql/程序/mysql-connector-java-6.0.3-bin.jar!/" />
       <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/commons-beanutils-1.8.0.jar!/" />
       <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/commons-collections-3.1.jar!/" />
       <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/commons-lang-2.5.jar!/" />
@@ -11,6 +8,11 @@
       <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/ezmorph-1.0.6.jar!/" />
       <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/json-lib-2.4-jdk15.jar!/" />
       <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/json.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/jstl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/standard.jar!/" />
+      <root url="jar://$PROJECT_DIR$/web/WEB-INF/lib/mysql-connector-java-5.1.39-bin.jar!/" />
+      <root url="jar://C:/Program Files/tomcat9/lib/jsp-api.jar!/" />
+      <root url="jar://C:/Program Files/tomcat9/lib/servlet-api.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

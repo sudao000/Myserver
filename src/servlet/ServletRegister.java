@@ -58,7 +58,7 @@ public class ServletRegister extends HttpServlet {
             String phone=jo.getString("phone");
             String email=jo.getString("email");
             String sheng=jo.getString("sheng");
-            String shi=jo.getString("sheng");
+            String shi=jo.getString("shi");
             String address=jo.getString("address");
             try {
                int id=Comysql.getMax("userinfo")+1;
@@ -71,12 +71,12 @@ public class ServletRegister extends HttpServlet {
                 e.printStackTrace();
             }
             if (f) {
-                os.write("×¢²á³É¹¦".getBytes());
+                os.write("×¢²á³É¹¦".getBytes("UTF-8"));
                 System.out.println("×¢²á³É¹¦");
                 os.flush();
                 os.close();
             } else {
-                os.write("×¢²áÊ§°Ü".getBytes());
+                os.write("×¢²áÊ§°Ü".getBytes("UTF-8"));
                 System.out.println("×¢²áÊ§°Ü");
                 os.flush();
                 os.close();

@@ -1,0 +1,19 @@
+<component name="ArtifactManager">
+  <artifact type="war" build-on-make="true" name="Myser">
+    <output-path>$PROJECT_DIR$</output-path>
+    <root id="archive" name="Myser.war">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="IdeaProjects" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="jsp-api" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="IdeaProjects/web/Web" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

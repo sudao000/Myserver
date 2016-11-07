@@ -27,7 +27,7 @@ public class DataServelet extends javax.servlet.http.HttpServlet {
     protected void doGet(javax.servlet.http.HttpServletRequest request, HttpServletResponse
             response) throws javax.servlet.ServletException, IOException {
         response.setCharacterEncoding("UTF-8");
-        response.setHeader("Content-type","text/html;charset=GBK");
+        response.setHeader("Content-type","text/html;charset=utf-8");
         request.setCharacterEncoding("UTF-8");
         form=request.getParameter("form");
         num=request.getParameter("num");
@@ -37,43 +37,47 @@ public class DataServelet extends javax.servlet.http.HttpServlet {
         OutputStream os = response.getOutputStream();
         String result="";
         System.out.println("i:"+i);
+        //os.write(("i:"+i).getBytes());
         if(form!=null&&num!=null&&para!=null){
             try{
                 switch (i){
                     case 1:
                         MachineDao machineDao=new MachineDao(conn);
                         result=machineDao.getJsonMachine(num);
-                        System.out.println("1:"+result);
+                       // System.out.println("1:"+result);
                         break;
                     case 2:
                         MtainDao mtainDao=new MtainDao(conn,num);
                         result=mtainDao.getJson(para);
-                        System.out.println("2:"+result);
+                        //System.out.println("2:"+result);
                         break;
                     case 3:
                         StateDao stateDao=new StateDao(conn,num);
                         result=stateDao.getJSonState(para);
-                        System.out.println("3:"+result);
+                        //System.out.println("3:"+result);
+
                         break;
                     case 4:
                         TnowDao tnowDao=new TnowDao(conn,num);
                         result=tnowDao.getJSonTnow();
-                        System.out.println("4:"+result);
+                        //System.out.println("4:"+result);
+
                         break;
                     case 5:
                         UserDao userDao=new UserDao(conn);
                         result=userDao.getJSonUser(para);
-                        System.out.println("5:"+result);
+                        //System.out.println("5:"+result);
+
                         break;
                     case 6:
                         WarnDao warnDao=new WarnDao(conn,num);
                         result=warnDao.getJSonwarn(para);
-                        System.out.println("6:"+result);
+                        //System.out.println("6:"+result);
                         break;
                     case 7:
                         WarnPDao warnPDao=new WarnPDao(conn,num);
                         result=warnPDao.getJSonwp();
-                        System.out.println("7:"+result);
+                        //System.out.println("7:"+result);
                         break;
                     default:
                         result="false";
@@ -95,8 +99,8 @@ public class DataServelet extends javax.servlet.http.HttpServlet {
             int size=json.length();
             for(int q=0;q<size;q++)
             {
-                os.write(json.get(q).toString().getBytes());
-                os.write("<br></br>".getBytes());
+                //System.out.println("shifoujinru2");
+                os.write(json.get(q).toString().getBytes("UTF-8"));
             }
             os.flush();
             os.close();

@@ -69,6 +69,7 @@ public class ServletUser extends HttpServlet {
                         map.put("shi",user.shi);
                         map.put("adress",user.address);
                         map.put("machine",machine);
+                        System.out.println(map.toString());
                         JSONObject json=new JSONObject(map);
                         out.print(json);
                         out.flush();

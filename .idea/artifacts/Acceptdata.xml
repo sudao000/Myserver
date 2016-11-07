@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Acceptdata">
+    <output-path>$PROJECT_DIR$/out/artifacts/Acceptdata</output-path>
+    <root id="archive" name="Acceptdata.jar">
+      <element id="module-output" name="Myjava" />
+      <element id="library" level="project" name="jsp-api" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/Myjava/MANIFEST.MF" />
+      </element>
+    </root>
+  </artifact>
+</component>

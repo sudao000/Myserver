@@ -76,6 +76,7 @@ public class WriteData implements Runnable {
     }
     public  void  wrd(String s1,String s2)throws SQLException {
         int[] ints1 = StoInt(s1);
+        System.out.println(ints1.length);
         float[] floats2 = StoFloat(s2);
         int a=0;
         WarnPDao warnPDao=new WarnPDao(conn, name);
@@ -84,8 +85,8 @@ public class WriteData implements Runnable {
         int lwp_size=lwp.size();
         for(int i=0;i<lwp_size;i++){
             Warnp warnp=lwp.get(i);
-            String s=warnp.term;
-            String m[]=s.split(",");
+            String s=warnp.term;//抓取限制条件
+            String m[]=s.split(",");//分离字符串
             float wt=Float.parseFloat(m[3]);
             int it=Integer.parseInt(m[3]);
             int index=Integer.parseInt(m[1]);
